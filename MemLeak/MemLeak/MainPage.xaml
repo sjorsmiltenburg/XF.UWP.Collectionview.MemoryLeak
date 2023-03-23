@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:MemLeak" xmlns:viewModels="clr-namespace:MemLeak"
+             x:Class="MemLeak.MainPage"             
+             BackgroundColor="White">
+    <ContentPage.BindingContext>
+        <local:MainPageViewModel/>
+    </ContentPage.BindingContext>
+   
+
+    <CollectionView                     
+                    x:Name="MainCollectionView"
+                    ItemsSource="{Binding GroupedPublications}" 
+                    Grid.Row="1"  
+                    IsGrouped="True"                    
+                    ItemsLayout="{Binding CollectionViewItemsLayout}"
+                    Margin="10,0,10,0" 
+                    VerticalScrollBarVisibility="Never"                    
+                    SelectionMode="None"
+                    >
+        <!-- todo even more advanced loading possible for collectionview RemainingItemsThresholdReachedCommand="{Binding PublicationTresholdReachedCommand}" RemainingItemsThreshold="{Binding PublicationTreshold}"-->
+        <CollectionView.GroupHeaderTemplate>
+            <DataTemplate x:DataType="viewModels:GroupedPublicationViewModel">
+                <Label Text="{Binding Name}" Margin="0" Padding="0" FontSize="Large" TextColor="Black"/>
+            </DataTemplate>
+        </CollectionView.GroupHeaderTemplate>
+
+
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <viewModels:LibraryPublicationView></viewModels:LibraryPublicationView>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+
+</ContentPage>

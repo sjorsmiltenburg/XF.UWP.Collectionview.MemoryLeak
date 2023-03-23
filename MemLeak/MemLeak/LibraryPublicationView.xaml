@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:MemLeak;assembly=MemLeak"
+             x:Class="MemLeak.LibraryPublicationView"
+             x:DataType="viewmodels:LibraryPublicationViewModel">
+    <Grid 
+        WidthRequest="{Binding Source={x:Static viewmodels:LibraryBookSizer.Instance},Path=BookWidth,Mode=OneWay}" 
+        HeightRequest="{Binding Source={x:Static viewmodels:LibraryBookSizer.Instance},Path=BookHeight, Mode=OneWay}" 
+        Margin="2.5,2.5" >
+        <Grid>
+            <Image x:Name="myImage" Source="{Binding MyImage}"/>
+        </Grid>
+    </Grid>
+</ContentView>
