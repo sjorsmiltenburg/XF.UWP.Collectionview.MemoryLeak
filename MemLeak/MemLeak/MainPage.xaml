@@ -29,6 +29,7 @@
 
         <CollectionView.ItemTemplate>
             <DataTemplate>
+                
                 <viewModels:LibraryPublicationView></viewModels:LibraryPublicationView>
             </DataTemplate>
         </CollectionView.ItemTemplate>
